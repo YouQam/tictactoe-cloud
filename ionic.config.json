@@ -1,5 +1,7 @@
 {
   "name": "tictacto_test",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

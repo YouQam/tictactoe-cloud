@@ -1,20 +1,69 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title style="text-align: center;">
+      TicTacToe-Cloud
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div [class.blur]="winner || draw">
+    <ion-item>
+      <ion-select style="width: 100%; max-width: 80%; margin-bottom: 20px;" [(ngModel)]="xORo"
+        placeholder="Select X or O to start playing" okText="Ok" cancelText="Dismiss" (ionChange)="onSelectXorO()"
+        [disabled]="listStatus">
+        <ion-select-option value="X">X</ion-select-option>
+        <ion-select-option value="O">O</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <h1 *ngIf='listStatus'>Current Player: {{ xIsNext? nickname : otherPlayer}} </h1>
+
+    <grid>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="onMakeMovement(0)">{{ squares[0] }}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="onMakeMovement(1)">{{ squares[1] }}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="onMakeMovement(2)">{{ squares[2] }}</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="onMakeMovement(3)">{{ squares[3] }}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="onMakeMovement(4)">{{ squares[4] }}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="onMakeMovement(5)">{{ squares[5] }}</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="onMakeMovement(6)">{{ squares[6] }}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="onMakeMovement(7)">{{ squares[7] }}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="onMakeMovement(8)">{{ squares[8] }}</ion-button>
+        </ion-col>
+      </ion-row>
+    </grid>
+
   </div>
+
+  <ion-card class="overlay" *ngIf="winner || draw">
+    <h2 *ngIf="winner">Player {{ winner }} won the game!</h2>
+    <h2 *ngIf="draw">Draw</h2>
+    <ion-button style="margin: 0px; padding: 0px; height: 100%; width: 100%;" color=primary (click)="onPlayAgain()">Start
+      new Game</ion-button>
+  </ion-card>
+
 </ion-content>
