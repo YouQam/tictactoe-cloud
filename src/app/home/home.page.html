@@ -17,9 +17,8 @@
       </ion-select>
     </ion-item>
 
-    <h1 *ngIf='listStatus'>Current Player: {{ xIsNext? nickname : otherPlayer}} </h1>
+    <h1 *ngIf='listStatus'>Current Player: {{ xIsNext? xORo : otherPlayer}} </h1>
 
-    <grid>
       <ion-row>
         <ion-col>
           <ion-button (click)="onMakeMovement(0)">{{ squares[0] }}</ion-button>
@@ -55,15 +54,12 @@
           <ion-button (click)="onMakeMovement(8)">{{ squares[8] }}</ion-button>
         </ion-col>
       </ion-row>
-    </grid>
-
   </div>
 
   <ion-card class="overlay" *ngIf="winner || draw">
     <h2 *ngIf="winner">Player {{ winner }} won the game!</h2>
     <h2 *ngIf="draw">Draw</h2>
-    <ion-button style="margin: 0px; padding: 0px; height: 100%; width: 100%;" color=primary (click)="onPlayAgain()">Start
-      new Game</ion-button>
+    <ion-button style="margin: 0px; padding: 0px; height: 100%; width: 100%;" color=primary (click)="onPlayAgain()">Start new Game</ion-button>
   </ion-card>
 
 </ion-content>
