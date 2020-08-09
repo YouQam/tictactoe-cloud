@@ -1,7 +1,7 @@
 # tictactoe-cloud
 The project is a <b>tic tac toe</b> game for two players. It allows a user to play with anyone in the world in real time. The application consists of both
 front end side built using Ionic cross-platform framework and [backend side](https://github.com/YouQam/tictactoe-cloud-backend) developed using nodeJS and containerized into a docker
-container. It's implementation been tested using both android & iOS devices.
+container. It's implementation has been tested using both android & iOS devices.
 
 ## Installation and Usage
 - Clone/download the repo
